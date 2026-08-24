@@ -1610,7 +1610,11 @@ pub(crate) mod ffi {
     /// with `instance == u32::MAX` for entries that visit the whole child. See
     /// [`crate::item_tree::visit_item_tree_z_sorted`] for the contract.
     ///
-    /// Safety: Assume a correct implementation of the item_tree array
+    /// Safety: Assume a correct implementation of the item_tree array, and of the
+    /// `visit_dynamic` and `collect_z` callbacks: both must be valid function pointers,
+    /// `collect_z` must forward the given `push_ctx` unchanged to `push` and only call
+    /// `push` for the duration of the `collect_z` call, and it must only push
+    /// `child_offset` values that are within the children of the node at `index`.
     #[unsafe(no_mangle)]
     pub unsafe extern "C" fn slint_visit_item_tree_z_sorted(
         item_tree: &ItemTreeRc,
