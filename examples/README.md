@@ -35,6 +35,7 @@ These examples demonstrate specialized features or integrations:
 | --- | --- |
 | [fancy_demo](./fancy_demo/) | Custom widget implementations built from scratch (buttons, sliders, checkboxes, MDI windows) |
 | [fancy-switches](./fancy-switches/) | Fancy toggle switch animations |
+| [custom-titlebar](./custom-titlebar/) | Frameless window with a custom title bar: move, resize, minimize, maximize, and close |
 | [dial](./dial/) | Rotary dial control |
 | [speedometer](./speedometer/) | Animated speedometer gauge |
 | [orbit-animation](./orbit-animation/) | Orbital animation effects |
