@@ -326,6 +326,10 @@ export default defineConfig({
                                                   label: "Cross-Axis Self-Alignment",
                                                   slug: "guide/experimental/cross-axis-self-alignment",
                                               },
+                                              {
+                                                  label: "Custom Mouse Cursor",
+                                                  slug: "guide/experimental/custom-mouse-cursor",
+                                              },
                                           ],
                                       },
                                   ]
