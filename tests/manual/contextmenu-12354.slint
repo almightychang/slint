@@ -1,0 +1,36 @@
+// Copyright © SixtyFPS GmbH <info@slint.dev>
+// SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-Slint-Royalty-free-2.0 OR LicenseRef-Slint-Software-3.0
+
+// Manual test for #12354.
+// - Right-click a table row: the "Row action" menu must open (broken on master).
+// - Right-click the LineEdit: its own cut/copy/paste menu must open, not the outer one.
+// - Left-click rows: selection must keep working.
+
+import { StandardTableView, LineEdit, VerticalBox } from "std-widgets.slint";
+
+export component Demo inherits Window {
+    width: 500px;
+    height: 400px;
+
+    ContextMenuArea {
+        Menu {
+            MenuItem { title: "Row action"; activated => { debug("row action"); } }
+            MenuItem { title: "Other action"; }
+        }
+
+        VerticalBox {
+            LineEdit {
+                text: "right-click me: my own edit menu must open";
+            }
+
+            StandardTableView {
+                columns: [{ title: "Name" }, { title: "Value" }];
+                rows: [
+                    [{ text: "alpha" }, { text: "1" }],
+                    [{ text: "beta" }, { text: "2" }],
+                    [{ text: "gamma" }, { text: "3" }],
+                ];
+            }
+        }
+    }
+}
